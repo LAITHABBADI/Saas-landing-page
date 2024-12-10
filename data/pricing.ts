@@ -1,23 +1,23 @@
 export const pricing = [
     {
         title: "Basic",
-        price: "$10",
+        price: "Free",
         features: ["Feature 1", "Feature 2", "Feature 3"],
         description: "This is a basic plan for beginners.",
         fancy: false,
     },
     {
         title: "Pro",
-        price: "$20",
+        price: "$1000",
         features: ["Feature 1", "Feature 2", "Feature 3", "Feature 4"],
-        description: "This is a pro plan for professionals.",
+        description: "Agent as a service",
         fancy: true,
     },
     {
         title: "Enterprise",
         price: "$30",
         features: ["Feature 1", "Feature 2", "Feature 3", "Feature 4", "Feature 5"],
-        description: "This is an enterprise plan for large organizations.",
+        description: "Agent as a service",
         fancy: false,
     },
 ];
