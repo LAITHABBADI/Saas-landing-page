@@ -8,7 +8,7 @@ export const navLinks = [
         href: "/about",
     },
     {
-        title: "Services",
+        title: "Agents",
         href: "/services",
     },
     {
