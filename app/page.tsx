@@ -18,7 +18,7 @@ export default function Home() {
                             <div
                                 className="flex flex-row items-center justify-center gap-5 p-1 text-xs bg-card/60 backdrop-blur-lg rounded-md border border-border">
                                 <Badge className="font-semibold">New</Badge>
-                                <h5>Announce your new feature here</h5>
+                                <h5>Contact us for help with building your automation agent</h5>
                                 <Link href="/" className="flex flex-row items-center">
                                     View all features
                                     <ArrowRightIcon className="w-6 h-6 ml-2"/>
