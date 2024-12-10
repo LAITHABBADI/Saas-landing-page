@@ -26,10 +26,10 @@ export default function Home() {
                             </div>
                         </div>
                         <h1 className="md:text-7xl my-4 font-extrabold text-4xl md:leading-tight">Create perfect
-                            projects
+                            Agents
                             with
-                            this landing
-                            page!</h1>
+                            Our AI
+                            Builder!</h1>
                         <p className="mx-auto my-4 text-sm w-full max-w-xl text-center font-medium leading-relaxed tracking-wide">
                             This is a landing page template that you can use to create a beautiful website. It is
                             designed
