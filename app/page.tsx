@@ -29,7 +29,7 @@ export default function Home() {
                             Agents
                             with
                             Our AI
-                            Agent Builder!</h1>
+                            Agent and free gpt chatbot Builder!</h1>
                         <p className="mx-auto my-4 text-sm w-full max-w-xl text-center font-medium leading-relaxed tracking-wide">
                             Unlock the power of AI agents with our no-code platform and free ai custom gpt chatbot builder. 
                             Easily create, customize, and deploy intelligent AI agents or custom chatbots to your website or build AI-powered products—all without writing a single line of code.
