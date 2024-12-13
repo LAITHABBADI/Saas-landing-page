@@ -8,7 +8,7 @@ import Footer from "@/components/layout/Footer";
 const font = Mulish({subsets: ["latin"]});
 
 export const metadata: Metadata = {
-    title: "AI Agents as a Service - No Code AI AGENT BUILDER - Custom GPT CHATBOT",
+    title: "free ai chatbot - Agents as a Service - No Code AI AGENT BUILDER - Custom GPT CHATBOT",
     description: "NexAgents your Aaas and AI Agent builder",
 };
 
