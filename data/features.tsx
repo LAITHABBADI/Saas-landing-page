@@ -12,7 +12,7 @@ export const features = [
         description: "Our Aaas, Agent as a service is one for a kind, implement and distribute  vertical agents",
         icon: <Pencil2Icon className="w-6 h-6"/>,
     },
-    
+    {
         title: "AI AGENTS WITH ACTIONS",
         description: "AI agents are autonomous programs that can observe their environment, make decisions, and take actions to achieve specific goals.",
         icon: <Handshake className="w-6 h-6"/>,
