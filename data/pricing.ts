@@ -10,14 +10,14 @@ export const pricing = [
         title: "Pro",
         price: "25$",
         features: ["Advanced chatbot without branding", "Choose your own llm", "Agent Actions"],
-        description: "Agent as a service",
+        description: "Best for SMEs and online shops",
         fancy: true,
     },
     {
         title: "Enterprise",
-        price: "$250",
-        features: ["Unlimited chatbots", "Unlimited agents", "Premium support", "10 hours support in agent building and enhancing", "One hour support in AI planning"],
-        description: "Agent as a service",
+        price: "$750",
+        features: ["Unlimited chatbots", "Unlimited AI agents", "Premium support", "10 hours support in agent building and enhancing", "One hour support in AI planning"],
+        description: "Best for big busineses ",
         fancy: false,
     },
 ];
