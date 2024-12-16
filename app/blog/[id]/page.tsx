@@ -201,7 +201,14 @@ export default function BlogDetail() {
     return <p>Loading...</p>;
   }
 
-  const blog = blogs.find((b) => b.id === parseInt(id));
+  // Ensure id is a string (in case it's an array)
+  const blogId = Array.isArray(id) ? id[0] : id;
+
+  const blog = blogs.find((b) => b.id === parseInt(blogId));
+
+  if (!blog) {
+    return <p>Blog not found</p>;
+  }
 
   if (!blog) {
     return <p>Blog not found</p>;
