@@ -1,21 +1,26 @@
-"use client"; // Add this at the top to mark the component as a client component
+"use client";
 
-import { useParams } from "next/navigation"; // Use useParams from next/navigation
-import Image from "next/image";
+import { useParams } from "next/navigation";
 
 interface Blog {
   id: number;
   title: string;
+  slug: string;
   description: string;
   image: string;
   timeToRead: string;
 }
-const blogs: Blog[] = [
-  {
-    id: 1,
-    title:
-      "The Evolution of AI Chatbots: Transforming Digital Communication in 2024",
-    description: `Artificial intelligence chat has revolutionized how businesses and individuals interact online. From customer service to personal assistance, AI chatbots are becoming increasingly sophisticated, offering capabilities that rival human conversation. In this comprehensive guide, we'll explore the latest developments in AI chat online and how these technologies are shaping our digital future.
+
+export default function BlogPage() {
+  const { slug } = useParams(); // Get the dynamic slug
+  // Fetch data here (e.g., from an API or database)
+  const blogs: Blog[] = [
+    {
+      id: 1,
+      title:
+        "The Evolution of AI Chatbots: Transforming Digital Communication in 2024",
+      slug: "The%20Evolution%20of%20AI%20Chatbots%3A%20Transforming%20Digital%20Communication%20in%202024",
+      description: `Artificial intelligence chat has revolutionized how businesses and individuals interact online. From customer service to personal assistance, AI chatbots are becoming increasingly sophisticated, offering capabilities that rival human conversation. In this comprehensive guide, we'll explore the latest developments in AI chat online and how these technologies are shaping our digital future.
     
     The Rise of AI Chatbot Technology
     The demand for AI chatbot online solutions has skyrocketed, with search trends showing a remarkable 900% increase in interest. This surge reflects the growing recognition of chatbot capabilities in handling everything from customer inquiries to complex business processes. Whether you're looking to talk to AI for personal use or implement an openai chatbot for business applications, the options are more accessible than ever.
@@ -46,13 +51,14 @@ const blogs: Blog[] = [
     
     Conclusion
     The AI chatting online revolution is just beginning. As these technologies become more sophisticated, the opportunities for businesses and individuals to leverage artificial intelligence online chat solutions will continue to expand. Whether you're looking to implement a chatbot gpt solution or explore the various chat gpt website options available, the time to embrace this technology is now.`,
-    image: "/images/chat1.webp",
-    timeToRead: "5 min read",
-  },
-  {
-    id: 2,
-    title: "AI Automation: Revolutionizing Business Operations in 2024",
-    description: `In today's rapidly evolving technological landscape, AI automation stands at the forefront of digital transformation. From streamlining workflows to enhancing productivity, artificial intelligence is reshaping how businesses operate across every sector.
+      image: "/images/chat1.webp",
+      timeToRead: "5 min read",
+    },
+    {
+      id: 2,
+      title: "AI Automation: Revolutionizing Business Operations in 2024",
+      slug: "AI%20Automation%3A%20Revolutionizing%20Business%20Operations%20in%202024",
+      description: `In today's rapidly evolving technological landscape, AI automation stands at the forefront of digital transformation. From streamlining workflows to enhancing productivity, artificial intelligence is reshaping how businesses operate across every sector.
 Understanding AI Automation
 AI automation represents the convergence of artificial intelligence and robotic process automation (RPA). This powerful combination enables systems to learn, adapt, and execute complex tasks with minimal human intervention. Unlike traditional automation, AI-powered systems can handle unpredictable scenarios and improve their performance over time.
 Key Applications of AI Automation
@@ -109,13 +115,15 @@ As AI technology continues to evolve, automation capabilities will become more s
 The key to successful AI automation lies not just in the technology itself, but in how organizations implement and integrate it into their existing operations. By taking a strategic approach and focusing on both technical and human factors, businesses can unlock the full potential of AI automation while maintaining their competitive edge in the market.
 Remember, AI automation is not about replacing human workers but augmenting their capabilities and enabling them to focus on higher-value activities that require creativity, emotional intelligence, and strategic thinking.
 This transformative technology continues to evolve, promising even more exciting developments in the years to come. Organizations that start preparing now will be better positioned to leverage these advancements and maintain their competitive advantage in an increasingly automated world.`,
-    image: "/images/chat2.webp",
-    timeToRead: "7 min read",
-  },
-  {
-    id: 3,
-    title: "The Evolution of AI Agents: From General to Vertical Applications",
-    description: `In today's rapidly evolving technological landscape, artificial intelligence (AI) tools and applications are revolutionizing how businesses operate. Among the most significant developments are AI agents - both general-purpose and vertical - that are reshaping industry-specific solutions and business processes.
+      image: "/images/chat2.webp",
+      timeToRead: "7 min read",
+    },
+    {
+      id: 3,
+      title:
+        "The Evolution of AI Agents: From General to Vertical Applications",
+      slug: "The%20Evolution%20of%20AI%20Agents%3A%20From%20General%20to%20Vertical%20Applications",
+      description: `In today's rapidly evolving technological landscape, artificial intelligence (AI) tools and applications are revolutionizing how businesses operate. Among the most significant developments are AI agents - both general-purpose and vertical - that are reshaping industry-specific solutions and business processes.
 Understanding AI Agents and Their Impact on Business
 AI agents represent a new frontier in artificial intelligence applications, offering automated assistance and decision-making capabilities across various domains. While general AI tools provide broad functionality, vertical AI agents are specialized solutions designed for specific industries or tasks, making them particularly valuable for business applications.
 Vertical AI Agents: The Future of Industry-Specific Solutions
@@ -131,13 +139,14 @@ As artificial intelligence technology continues to evolve, we're seeing an incre
 Conclusion
 The landscape of AI tools and artificial intelligence applications continues to evolve, with vertical agents representing the next frontier in business-specific solutions. Whether through free AI resources or enterprise-level implementations, organizations have more options than ever to leverage these powerful technologies for their specific needs.
 By understanding and implementing both general and vertical AI agents, businesses can position themselves at the forefront of technological innovation while addressing their unique industry challenges.`,
-    image: "/images/chat3.webp",
-    timeToRead: "6 min read",
-  },
-  {
-    id: 4,
-    title: "Build and Sell AI Agents Without Writing a Single Line of Code",
-    description: `Looking to capitalize on the AI tools revolution but don't know how to code? nexagents is transforming how entrepreneurs create and monetize AI agents through our innovative no-code platform. Here's your complete guide to building and selling AI agents without any programming experience.
+      image: "/images/chat3.webp",
+      timeToRead: "6 min read",
+    },
+    {
+      id: 4,
+      title: "Build and Sell AI Agents Without Writing a Single Line of Code",
+      slug: "Build%20and%20Sell%20AI%20Agents%20Without%20Writing%20a%20Single%20Line%20of%20Code",
+      description: `Looking to capitalize on the AI tools revolution but don't know how to code? nexagents is transforming how entrepreneurs create and monetize AI agents through our innovative no-code platform. Here's your complete guide to building and selling AI agents without any programming experience.
 The No-Code AI Revolution
 Gone are the days when creating AI tools required deep technical expertise. With nexagents' drag-and-drop interface, anyone can build sophisticated AI agents that solve real business problems. Whether you're targeting AI customer service, business automation, or specialized industry solutions, our platform makes it possible to bring your ideas to life.
 Building Your AI Agent in 3 Simple Steps
@@ -189,45 +198,34 @@ The AI tools market is growing exponentially, with businesses actively seeking s
 Whether you're creating AI tools for business, AI customer service solutions, or specialized industry applications, nexagents provides everything you need to succeed in the AI marketplace.
 Ready to Start?
 Visit nexagents today and join the growing community of AI agent creators. Transform your ideas into reality with our no-code platform and start generating revenue from your AI agents.`,
-    image: "/images/chat4.webp",
-    timeToRead: "8 min read",
-  },
-];
+      image: "/images/chat4.webp",
+      timeToRead: "8 min read",
+    },
+  ];
 
-export default function BlogDetail() {
-  const { id } = useParams(); // Use useParams to get dynamic route parameter
-
-  if (!id) {
-    return <p>Loading...</p>;
-  }
-
-  // Ensure id is a string (in case it's an array)
-  const blogId = Array.isArray(id) ? id[0] : id;
-
-  const blog = blogs.find((b) => b.id === parseInt(blogId));
+  // Find the blog that matches the slug
+  const blog = blogs.find((b) => {
+    console.log("Checking slug:", b.slug); // Log each blog's slug
+    return b.slug === slug;
+  });
 
   if (!blog) {
-    return <p>Blog not found</p>;
-  }
-
-  if (!blog) {
-    return <p>Blog not found</p>;
+    return <p className="text-center text-gray-600">Blog not found</p>;
   }
 
   return (
     <div className="min-h-screen bg-black p-6">
-      <h1 className="text-3xl font-bold text-center mb-8">{blog.title}</h1>
+      <h1 className="text-3xl lg:w-[60%] mx-auto font-bold text-center mb-8">{blog.title}</h1>
       <div className="max-w-3xl mx-auto">
-        <Image
+        <img
           src={blog.image}
           alt={blog.title}
-          width={800}
-          height={400}
           className="w-full h-[400px] object-cover rounded-lg"
         />
         <div className="mt-4 text-gray-200">
           <p>{blog.description}</p>
         </div>
+        <p className="text-gray-400 mt-4">{blog.timeToRead}</p>
       </div>
     </div>
   );

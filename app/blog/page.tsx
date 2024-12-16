@@ -1,21 +1,11 @@
-"use client";
-
-import Image from "next/image";
 import Link from "next/link";
 
-interface Blog {
-  id: number;
-  title: string;
-  description: string;
-  image: string;
-  timeToRead: string;
-}
-
-const blogs: Blog[] = [
+const blogs = [
   {
     id: 1,
     title:
       "The Evolution of AI Chatbots: Transforming Digital Communication in 2024",
+    slug: "The Evolution of AI Chatbots: Transforming Digital Communication in 2024",
     description: `Artificial intelligence chat has revolutionized how businesses and individuals interact online. From customer service to personal assistance, AI chatbots are becoming increasingly sophisticated, offering capabilities that rival human conversation. In this comprehensive guide, we'll explore the latest developments in AI chat online and how these technologies are shaping our digital future.
     
     The Rise of AI Chatbot Technology
@@ -53,6 +43,7 @@ const blogs: Blog[] = [
   {
     id: 2,
     title: "AI Automation: Revolutionizing Business Operations in 2024",
+    slug: "AI Automation: Revolutionizing Business Operations in 2024",
     description: `In today's rapidly evolving technological landscape, AI automation stands at the forefront of digital transformation. From streamlining workflows to enhancing productivity, artificial intelligence is reshaping how businesses operate across every sector.
 Understanding AI Automation
 AI automation represents the convergence of artificial intelligence and robotic process automation (RPA). This powerful combination enables systems to learn, adapt, and execute complex tasks with minimal human intervention. Unlike traditional automation, AI-powered systems can handle unpredictable scenarios and improve their performance over time.
@@ -116,6 +107,7 @@ This transformative technology continues to evolve, promising even more exciting
   {
     id: 3,
     title: "The Evolution of AI Agents: From General to Vertical Applications",
+    slug: "The Evolution of AI Agents: From General to Vertical Applications",
     description: `In today's rapidly evolving technological landscape, artificial intelligence (AI) tools and applications are revolutionizing how businesses operate. Among the most significant developments are AI agents - both general-purpose and vertical - that are reshaping industry-specific solutions and business processes.
 Understanding AI Agents and Their Impact on Business
 AI agents represent a new frontier in artificial intelligence applications, offering automated assistance and decision-making capabilities across various domains. While general AI tools provide broad functionality, vertical AI agents are specialized solutions designed for specific industries or tasks, making them particularly valuable for business applications.
@@ -138,6 +130,7 @@ By understanding and implementing both general and vertical AI agents, businesse
   {
     id: 4,
     title: "Build and Sell AI Agents Without Writing a Single Line of Code",
+    slug: "Build and Sell AI Agents Without Writing a Single Line of Code",
     description: `Looking to capitalize on the AI tools revolution but don't know how to code? nexagents is transforming how entrepreneurs create and monetize AI agents through our innovative no-code platform. Here's your complete guide to building and selling AI agents without any programming experience.
 The No-Code AI Revolution
 Gone are the days when creating AI tools required deep technical expertise. With nexagents' drag-and-drop interface, anyone can build sophisticated AI agents that solve real business problems. Whether you're targeting AI customer service, business automation, or specialized industry solutions, our platform makes it possible to bring your ideas to life.
@@ -195,7 +188,6 @@ Visit nexagents today and join the growing community of AI agent creators. Trans
   },
 ];
 
-
 export default function Blogs() {
   return (
     <div className="min-h-screen bg-black p-6">
@@ -204,15 +196,13 @@ export default function Blogs() {
         {blogs.map((blog) => (
           <Link
             key={blog.id}
-            href={`/blog/${blog.id}`} // Dynamic route to blog details
-            passHref
+            href={`/blog/${blog.slug}`}
+            className="bg-white shadow-md rounded-lg overflow-hidden cursor-pointer"
           >
-            <div className="bg-white shadow-md rounded-lg overflow-hidden cursor-pointer">
-              <Image
+            <div>
+              <img
                 src={blog.image}
                 alt={blog.title}
-                width={400}
-                height={200}
                 className="w-full h-[200px] object-cover"
               />
               <div className="p-4">
