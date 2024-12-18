@@ -1,6 +1,6 @@
 // next-sitemap.config.js
 module.exports = {
-  siteUrl: process.env.SITE_URL || "http://localhost:3000", // Set your production URL here
+  siteUrl: process.env.SITE_URL || "https://www.nexagents.cloud", // Set your production URL here
   generateRobotsTxt: true, // Optional: Generate robots.txt file
   sitemapSize: 7000, // Optional: Break sitemap into smaller files if you have many URLs
   // Optionally include additional paths or dynamic routes
