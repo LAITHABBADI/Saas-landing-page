@@ -12,9 +12,12 @@ interface Blog {
 }
 
 export default function BlogPage() {
-  const { slug } = useParams(); // Get the dynamic slug
+  const { slug } = useParams();// Get the dynamic slug
+
+  console.log(slug)
+  console.log("hello")
   // Fetch data here (e.g., from an API or database)
-  const blogs: Blog[] = [
+  const blogs = [
     {
       id: 1,
       title:
@@ -201,11 +204,63 @@ Visit nexagents today and join the growing community of AI agent creators. Trans
       image: "/images/chat4.webp",
       timeToRead: "8 min read",
     },
+    {
+      id: 5,
+      title:
+        "The Rise of AI Agent Builders: Transforming Business and Healthcare Through Intelligent Automation",
+      slug: "The%20Rise%20of%20AI%20Agent%20Builders%3A%20Transforming%20Business%20and%20Healthcare%20Through%20Intelligent%20Automation",
+      description: `In today's rapidly evolving technological landscape, AI agent builders have emerged as powerful tools that are revolutionizing how businesses implement artificial intelligence solutions. These platforms are democratizing AI development, making it possible for organizations to create sophisticated AI agents without extensive coding expertise.
+
+## Revolutionizing Business with Custom Chatbots
+
+One of the most prominent applications of AI agent builders is in creating chatbots for business. These intelligent virtual assistants are transforming customer service, sales, and internal operations. Unlike traditional chatbots, modern AI-powered agents leveraging technologies like GPT-4 agents and GPT-3 agents can understand context, maintain meaningful conversations, and handle complex queries with remarkable accuracy.
+
+The key advantage of using an AI agent builder for business applications lies in its customization capabilities. Organizations can tailor their GPT-powered agents to align perfectly with their brand voice, industry-specific requirements, and unique business processes. This level of customization ensures that the AI agent becomes a natural extension of the business, rather than a generic tool.
+
+## AI Automation: The Future of Enterprise Efficiency
+
+AI automation is becoming increasingly central to business operations. By implementing AI agents, companies can automate routine tasks, streamline workflows, and reduce human error. These intelligent systems can handle everything from data processing to decision support, allowing human employees to focus on more strategic initiatives.
+
+## Transforming Healthcare Through AI Agents
+
+The healthcare sector has emerged as a prime beneficiary of AI agent builder technology. Healthcare providers are implementing specialized AI agents to:
+•⁠  ⁠Streamline patient scheduling and administrative tasks
+•⁠  ⁠Provide 24/7 patient support and preliminary symptom assessment
+•⁠  ⁠Assist medical professionals with data analysis and research
+•⁠  ⁠Manage electronic health records more efficiently
+
+The ability to create custom AI agents specifically designed for healthcare applications has made it possible to address the unique challenges and stringent requirements of the medical field, while maintaining compliance with healthcare regulations and privacy standards.
+
+## The Evolution of AI Agent Technology
+
+The progression from early AI implementations to today's sophisticated GPT-4 agent and GPT-3 agent systems represents a quantum leap in capabilities. Modern AI agents can:
+•⁠  ⁠Process and understand natural language with unprecedented accuracy
+•⁠  ⁠Learn from interactions to improve performance over time
+•⁠  ⁠Handle complex, multi-step tasks autonomously
+•⁠  ⁠Integrate with existing business systems and databases
+
+## Looking Ahead
+
+As AI agent builders continue to evolve, we can expect to see even more innovative applications across industries. The focus on customization and specialized solutions will drive the development of more sophisticated and capable AI agents, further transforming how businesses operate and serve their customers.
+
+The future of AI automation lies in creating more intelligent, adaptable, and specialized agents that can handle increasingly complex tasks while maintaining the human touch that is essential for meaningful interactions. As these technologies continue to mature, organizations that embrace AI agent builders will find themselves well-positioned to lead in their respective industries.
+
+This technological revolution is just beginning, and the possibilities for AI agents in business, healthcare, and beyond are boundless. The key to success will be choosing the right AI agent builder platform and implementing solutions that align with specific organizational needs and objectives.`,
+      image: "/images/chat5.webp",
+      timeToRead: "7 min read",
+    },
   ];
 
   // Find the blog that matches the slug
   const blog = blogs.find((b) => {
-    console.log("Checking slug:", b.slug); // Log each blog's slug
+    console.log("Checking slug:", b.slug);
+    // Log each blog's slug
+    if (b.slug == slug) {
+      console.log("true")
+    }
+    else {
+      console.log("false")
+    }
     return b.slug === slug;
   });
 
@@ -214,13 +269,15 @@ Visit nexagents today and join the growing community of AI agent creators. Trans
   }
 
   return (
-    <div className="min-h-screen bg-black p-6">
-      <h1 className="text-3xl lg:w-[60%] mx-auto font-bold text-center mb-8">{blog.title}</h1>
-      <div className="max-w-3xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-r from-gray-900 to-gray-800 p-6">
+      <h1 className="text-3xl lg:w-[80%] mx-auto font-bold text-center mb-8">
+        {blog.title}
+      </h1>
+      <div className="lg:w-[80%] mx-auto">
         <img
           src={blog.image}
           alt={blog.title}
-          className="w-full h-[400px] object-cover rounded-lg"
+          className="w-[600px] h-[400px] mx-auto"
         />
         <div className="mt-4 text-gray-200">
           <p>{blog.description}</p>

@@ -1,4 +1,16 @@
+"use client";
+
+import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+
+interface Blog {
+  id: number;
+  title: string;
+  slug: string;
+  image: string;
+  timeToRead: string;
+}
 
 const blogs = [
   {
@@ -186,40 +198,116 @@ Visit nexagents today and join the growing community of AI agent creators. Trans
     image: "/images/chat4.webp",
     timeToRead: "8 min read",
   },
+  {
+    id: 5,
+    title:
+      "The Rise of AI Agent Builders: Transforming Business and Healthcare Through Intelligent Automation",
+    slug: "The Rise of AI Agent Builders: Transforming Business and Healthcare Through Intelligent Automation",
+    description: `In today's rapidly evolving technological landscape, AI agent builders have emerged as powerful tools that are revolutionizing how businesses implement artificial intelligence solutions. These platforms are democratizing AI development, making it possible for organizations to create sophisticated AI agents without extensive coding expertise.
+
+## Revolutionizing Business with Custom Chatbots
+
+One of the most prominent applications of AI agent builders is in creating chatbots for business. These intelligent virtual assistants are transforming customer service, sales, and internal operations. Unlike traditional chatbots, modern AI-powered agents leveraging technologies like GPT-4 agents and GPT-3 agents can understand context, maintain meaningful conversations, and handle complex queries with remarkable accuracy.
+
+The key advantage of using an AI agent builder for business applications lies in its customization capabilities. Organizations can tailor their GPT-powered agents to align perfectly with their brand voice, industry-specific requirements, and unique business processes. This level of customization ensures that the AI agent becomes a natural extension of the business, rather than a generic tool.
+
+## AI Automation: The Future of Enterprise Efficiency
+
+AI automation is becoming increasingly central to business operations. By implementing AI agents, companies can automate routine tasks, streamline workflows, and reduce human error. These intelligent systems can handle everything from data processing to decision support, allowing human employees to focus on more strategic initiatives.
+
+## Transforming Healthcare Through AI Agents
+
+The healthcare sector has emerged as a prime beneficiary of AI agent builder technology. Healthcare providers are implementing specialized AI agents to:
+•⁠  ⁠Streamline patient scheduling and administrative tasks
+•⁠  ⁠Provide 24/7 patient support and preliminary symptom assessment
+•⁠  ⁠Assist medical professionals with data analysis and research
+•⁠  ⁠Manage electronic health records more efficiently
+
+The ability to create custom AI agents specifically designed for healthcare applications has made it possible to address the unique challenges and stringent requirements of the medical field, while maintaining compliance with healthcare regulations and privacy standards.
+
+## The Evolution of AI Agent Technology
+
+The progression from early AI implementations to today's sophisticated GPT-4 agent and GPT-3 agent systems represents a quantum leap in capabilities. Modern AI agents can:
+•⁠  ⁠Process and understand natural language with unprecedented accuracy
+•⁠  ⁠Learn from interactions to improve performance over time
+•⁠  ⁠Handle complex, multi-step tasks autonomously
+•⁠  ⁠Integrate with existing business systems and databases
+
+## Looking Ahead
+
+As AI agent builders continue to evolve, we can expect to see even more innovative applications across industries. The focus on customization and specialized solutions will drive the development of more sophisticated and capable AI agents, further transforming how businesses operate and serve their customers.
+
+The future of AI automation lies in creating more intelligent, adaptable, and specialized agents that can handle increasingly complex tasks while maintaining the human touch that is essential for meaningful interactions. As these technologies continue to mature, organizations that embrace AI agent builders will find themselves well-positioned to lead in their respective industries.
+
+This technological revolution is just beginning, and the possibilities for AI agents in business, healthcare, and beyond are boundless. The key to success will be choosing the right AI agent builder platform and implementing solutions that align with specific organizational needs and objectives.`,
+    image: "/images/chat5.webp",
+    timeToRead: "7 min read",
+  },
 ];
 
+
 export default function Blogs() {
+
+  const textToAnimate = "elcome To Our Blogs!";
+  const [visibleText, setVisibleText] = useState("");
+  const animationSpeed = 200;
+
+
+  useEffect(() => {
+    let textIndex = 0;
+
+    // Store timeout IDs for cleanup
+    let textTimeoutId: NodeJS.Timeout;
+
+    const animateText = () => {
+      if (textIndex <= textToAnimate.length) {
+        setVisibleText(textToAnimate.slice(0, textIndex));
+        textIndex++;
+        textTimeoutId = setTimeout(animateText, animationSpeed);
+      } else {
+        textIndex = 0; // Reset index to restart animation
+        textTimeoutId = setTimeout(animateText, animationSpeed);
+      }
+    };
+
+    animateText();
+
+    // Clean up the timers when the component unmounts
+    return () => {
+      clearTimeout(textTimeoutId);
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen bg-black p-6">
-      <h1 className="text-3xl font-bold text-center mb-8">Our Blogs</h1>
-      <div className="grid grid-cols-1 w-[70%] mx-auto md:grid-cols-2 lg:grid-cols-2 gap-6">
+    <div className="min-h-screen bg-gradient-to-r from-gray-900 to-gray-800 p-8">
+      <h1 className="text-4xl font-bold text-center text-white mb-12">
+        W{visibleText}
+      </h1>
+      <div className="grid grid-cols-1 lg:w-[80%] mx-auto sm:grid-cols-2 md:grid-cols-3 gap-6">
         {blogs.map((blog) => (
-          <Link
-            key={blog.id}
-            href={`/blog/${blog.slug}`}
-            className="bg-white shadow-md rounded-lg overflow-hidden cursor-pointer"
-          >
-            <div>
-              <img
-                src={blog.image}
-                alt={blog.title}
-                className="w-full h-[200px] object-cover"
-              />
-              <div className="p-4">
-                <h2 className="text-lg text-black font-bold">{blog.title}</h2>
-                <p
-                  className="text-gray-600 mt-2 line-clamp-3"
-                  style={{
-                    display: "-webkit-box",
-                    WebkitBoxOrient: "vertical",
-                    overflow: "hidden",
-                  }}
-                >
-                  {blog.description}
-                </p>
-                <span className="text-gray-500">...more</span>
-                <div className="flex justify-between items-center mt-4">
-                  <span className="text-gray-500">{blog.timeToRead}</span>
+          <Link key={blog.id} href={`/blog/${blog.slug}`}>
+            <div className="bg-white lg:h-[400px] transform transition-all duration-300 overflow-hidden flex flex-col hover:opacity-50">
+              <div className="relative">
+                <Image
+                  src={blog.image}
+                  alt={blog.title}
+                  width={500}
+                  height={300}
+                  className="w-full h-56 object-cover rounded-t-lg"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-20 rounded-t-lg"></div>
+              </div>
+              <div className="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <h2 className="text-xl font-bold text-gray-800 mb-2 hover:text-blue-500 transition-colors duration-200">
+                    {blog.title}
+                  </h2>
+                </div>
+                <div className="flex justify-between items-center text-gray-500 text-sm">
+                  <span>{blog.timeToRead}</span>
+                  <span className="text-blue-500 font-medium hover:underline">
+                    Read more
+                  </span>
                 </div>
               </div>
             </div>

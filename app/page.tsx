@@ -7,163 +7,266 @@ import {Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle} f
 import {features} from "@/data/features";
 import {pricing} from "@/data/pricing";
 import {CircleCheck} from "lucide-react";
+import Head from "next/head";
+
 
 export default function Home() {
     return (
-        <>
-            <div className="border-b border-border">
-                <main className="container mx-auto">
-                    <div className="relative md:mt-24 mx-auto w-full max-w-4xl pt-4 text-center">
-                        <div className="justify-center hidden md:flex">
-                            <div
-                                className="flex flex-row items-center justify-center gap-5 p-1 text-xs bg-card/60 backdrop-blur-lg rounded-md border border-border">
-                                <Badge className="font-semibold">New</Badge>
-                                <h5>Contact us for help with building your automation agent</h5>
-                                <Link href="/" className="flex flex-row items-center">
-                                    View all features
-                                    <ArrowRightIcon className="w-6 h-6 ml-2"/>
-                                </Link>
-                            </div>
-                        </div>
-                        <h1 className="md:text-7xl my-4 font-extrabold text-4xl md:leading-tight">Create perfect
-                            Agents
-                            with
-                            Our AI
-                            Agent and free gpt chatbot Builder!</h1>
-                        <p className="mx-auto my-4 text-sm w-full max-w-xl text-center font-medium leading-relaxed tracking-wide">
-                            Unlock the power of AI agents with our no-code platform and free ai custom gpt chatbot builder. 
-                            Easily create, customize, and deploy intelligent AI agents or custom chatbots to your website or build AI-powered products—all without writing a single line of code.
-                            Whether you're looking to enhance user engagement or automate tasks, our intuitive platform makes it simple to bring AI to your business.
-                        </p>
-                        <div className="flex flex-row justify-center items-center space-x-4 my-8">
-                            <Button>
-                                Get Started
-                            </Button>
-                            <Button variant="secondary">
-                                Learn More
-                            </Button>
-                        </div>
+      <>
+        <Head>
+          {/* Open Graph / Social Media Meta Tags */}
+          <meta property="og:type" content="article" />
+          <meta
+            property="og:title"
+            content="Business Chatbots & GPT-Powered AI Agents: Custom Solutions for Healthcare & Enterprise"
+          />
+          <meta
+            property="og:description"
+            content="Discover how chatbots for business and AI automation are transforming enterprises. Featuring GPT-4 agents, GPT-3 agents, and custom healthcare AI solutions."
+          />
+          <meta
+            property="og:image"
+            content="https://www.nexagents.cloud/images/chat1.webp"
+          />
+          <meta
+            property="og:image"
+            content="https://www.nexagents.cloud/images/chat2.webp"
+          />
+          <meta
+            property="og:image"
+            content="https://www.nexagents.cloud/images/chat3.webp"
+          />
+          <meta
+            property="og:image"
+            content="https://www.nexagents.cloud/images/chat4.webp"
+          />
+          <meta
+            property="og:image"
+            content="https://www.nexagents.cloud/images/chat5.webp"
+          />
+          <meta
+            property="og:url"
+            content="https://www.nexagents.cloud/blog/The%20Evolution%20of%20AI%20Chatbots:%20Transforming%20Digital%20Communication%20in%202024"
+          />
+          <meta
+            property="og:url"
+            content="https://www.nexagents.cloud/blog/AI%20Automation:%20Revolutionizing%20Business%20Operations%20in%202024"
+          />
+          <meta
+            property="og:url"
+            content="https://www.nexagents.cloud/blog/The%20Evolution%20of%20AI%20Agents:%20From%20General%20to%20Vertical%20Applications"
+          />
+          <meta
+            property="og:url"
+            content="https://www.nexagents.cloud/blog/Build%20and%20Sell%20AI%20Agents%20Without%20Writing%20a%20Single%20Line%20of%20Code"
+          />
+          <meta
+            property="og:url"
+            content="https://www.nexagents.cloud/blog/The%20Rise%20of%20AI%20Agent%20Builders:%20Transforming%20Business%20and%20Healthcare%20Through%20Intelligent%20Automation"
+          />
 
-                        <div
-                            className="absolute top-0 -z-10 max-h-full max-w-screen-lg w-full h-full blur-2xl">
-                            <div
-                                className="absolute top-24 left-24 w-56 h-56 bg-violet-600 rounded-full mix-blend-multiply opacity-70 animate-blob filter blur-3xl">
-                            </div>
-                            <div
-                                className="absolute hidden md:block bottom-2 right-1/4 w-56 h-56 bg-sky-600 rounded-full mix-blend-multiply opacity-70 animate-blob delay-1000 filter blur-3xl"></div>
-                            <div
-                                className="absolute hidden md:block bottom-1/4 left-1/3 w-56 h-56 bg-pink-600 rounded-full mix-blend-multiply opacity-70 animate-blob delay-500 filter blur-3xl"></div>
-                        </div>
-                    </div>
+          {/* Twitter Card Meta Tags */}
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta
+            name="twitter:title"
+            content="Business Chatbots & AI Agents: GPT-Powered Enterprise Solutions"
+          />
+          <meta
+            name="twitter:description"
+            content="Transform your business with custom AI solutions: GPT-4 agents, GPT-3 agents, healthcare AI, and chatbots for business automation."
+          />
+          <meta
+            name="twitter:image"
+            content="https://www.nexagents.cloud/images/chat1.webp"
+          />
+          <meta
+            name="twitter:image"
+            content="https://www.nexagents.cloud/images/chat2.webp"
+          />
+          <meta
+            name="twitter:image"
+            content="https://www.nexagents.cloud/images/chat3.webp"
+          />
+          <meta
+            name="twitter:image"
+            content="https://www.nexagents.cloud/images/chat4.webp"
+          />
+          <meta
+            name="twitter:image"
+            content="https://www.nexagents.cloud/images/chat5.webp"
+          />
 
-                    <div className="max-w-4xl mx-auto mb-8">
-                        <Image className="w-full" src="/dashboard-ui.png" alt="Dashboard ui design" priority
-                               width={1200}
-                               height={800}/>
-                    </div>
-                </main>
+          {/* Additional SEO Tags */}
+          <meta name="author" content="[Your Name]" />
+          <meta name="robots" content="index, follow" />
+          <link
+            rel="canonical"
+            href="https://www.nexagents.cloud/blog/The%20Evolution%20of%20AI%20Chatbots:%20Transforming%20Digital%20Communication%20in%202024"
+          />
+          <link
+            rel="canonical"
+            href="https://www.nexagents.cloud/blog/AI%20Automation:%20Revolutionizing%20Business%20Operations%20in%202024"
+          />
+          <link
+            rel="canonical"
+            href="https://www.nexagents.cloud/blog/The%20Evolution%20of%20AI%20Agents:%20From%20General%20to%20Vertical%20Applications"
+          />
+          <link
+            rel="canonical"
+            href="https://www.nexagents.cloud/blog/Build%20and%20Sell%20AI%20Agents%20Without%20Writing%20a%20Single%20Line%20of%20Code"
+          />
+          <link
+            rel="canonical"
+            href="https://www.nexagents.cloud/blog/The%20Rise%20of%20AI%20Agent%20Builders:%20Transforming%20Business%20and%20Healthcare%20Through%20Intelligent%20Automation"
+          />
+          <title>Business Chatbots & GPT-Powered AI Agents</title>
+        </Head>
+        <div className="border-b border-border">
+          <main className="container mx-auto">
+            <div className="relative md:mt-24 mx-auto w-full max-w-4xl pt-4 text-center">
+              <div className="justify-center hidden md:flex">
+                <div className="flex flex-row items-center justify-center gap-5 p-1 text-xs bg-card/60 backdrop-blur-lg rounded-md border border-border">
+                  <Badge className="font-semibold">New</Badge>
+                  <h5>
+                    Contact us for help with building your automation agent
+                  </h5>
+                  <Link href="/" className="flex flex-row items-center">
+                    View all features
+                    <ArrowRightIcon className="w-6 h-6 ml-2" />
+                  </Link>
+                </div>
+              </div>
+              <h1 className="md:text-7xl my-4 font-extrabold text-4xl md:leading-tight">
+                Create perfect Agents with Our AI Agent and free gpt chatbot
+                Builder!
+              </h1>
+              <p className="mx-auto my-4 text-sm w-full max-w-xl text-center font-medium leading-relaxed tracking-wide">
+                Unlock the power of AI agents with our no-code platform and free
+                ai custom gpt chatbot builder. Easily create, customize, and
+                deploy intelligent AI agents or custom chatbots to your website
+                or build AI-powered products—all without writing a single line
+                of code. Whether you're looking to enhance user engagement or
+                automate tasks, our intuitive platform makes it simple to bring
+                AI to your business.
+              </p>
+              <div className="flex flex-row justify-center items-center space-x-4 my-8">
+                <Button>Get Started</Button>
+                <Button variant="secondary">Learn More</Button>
+              </div>
+
+              <div className="absolute top-0 -z-10 max-h-full max-w-screen-lg w-full h-full blur-2xl">
+                <div className="absolute top-24 left-24 w-56 h-56 bg-violet-600 rounded-full mix-blend-multiply opacity-70 animate-blob filter blur-3xl"></div>
+                <div className="absolute hidden md:block bottom-2 right-1/4 w-56 h-56 bg-sky-600 rounded-full mix-blend-multiply opacity-70 animate-blob delay-1000 filter blur-3xl"></div>
+                <div className="absolute hidden md:block bottom-1/4 left-1/3 w-56 h-56 bg-pink-600 rounded-full mix-blend-multiply opacity-70 animate-blob delay-500 filter blur-3xl"></div>
+              </div>
             </div>
 
-            {/* features */}
+            <div className="max-w-4xl mx-auto mb-8">
+              <Image
+                className="w-full"
+                src="/dashboard-ui.png"
+                alt="Dashboard ui design"
+                priority
+                width={1200}
+                height={800}
+              />
+            </div>
+          </main>
+        </div>
 
-            <section
-                className="border-b border-border bg-gradient-to-b from-background to-transparent via-background via-90% relative">
-                <div className="container mx-auto text-center">
-                    <div className="my-24">
-                        <h5 className="text-primary">
-                            WHY CHOOSE US
-                        </h5>
-                        <h2 className="text-4xl font-extrabold my-4">
-                            Build better websites with us
-                        </h2>
+        {/* features */}
 
-                        <p className="mx-auto my-4 text-sm w-full max-w-md bg-transparent text-center font-medium leading-relaxed tracking-wide text-muted-foreground">
-                            Show off your features or services in a beautiful way. This section is perfect for
-                            showcasing
-                        </p>
+        <section className="border-b border-border bg-gradient-to-b from-background to-transparent via-background via-90% relative">
+          <div className="container mx-auto text-center">
+            <div className="my-24">
+              <h5 className="text-primary">WHY CHOOSE US</h5>
+              <h2 className="text-4xl font-extrabold my-4">
+                Build better websites with us
+              </h2>
 
-                        <div className="flex flex-col md:flex-row gap-4 mt-12">
-                            {features.map((feature) => (
-                                <Card key={feature.title} className="max-w-lg mx-auto">
-                                    <CardHeader>
-                                        <div
-                                            className="w-16 h-16 text-primary-foreground flex justify-center items-center border border-border rounded-xl bg-primary mx-auto">
-                                            {feature.icon}
-                                        </div>
-                                    </CardHeader>
-                                    <CardContent>
-                                        <CardTitle>{feature.title}</CardTitle>
-                                        <CardDescription className="mt-4">
-                                            {feature.description}
-                                        </CardDescription>
-                                    </CardContent>
-                                </Card>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-                <div
-                    className="absolute top-0 -z-10 max-h-full w-full h-full blur-2xl">
-                    <div
-                        className="absolute bottom-0 left-0 w-1/2 h-56 bg-violet-600 rounded-full mix-blend-multiply opacity-70 animate-blob filter blur-3xl">
-                    </div>
-                    <div
-                        className="absolute bottom-0 right-0 w-1/2 h-56 bg-sky-600 rounded-full mix-blend-multiply opacity-70 animate-blob delay-1000 filter blur-3xl"></div>
-                </div>
-            </section>
+              <p className="mx-auto my-4 text-sm w-full max-w-md bg-transparent text-center font-medium leading-relaxed tracking-wide text-muted-foreground">
+                Show off your features or services in a beautiful way. This
+                section is perfect for showcasing
+              </p>
 
-            {/* Pricing */}
+              <div className="flex flex-col md:flex-row gap-4 mt-12">
+                {features.map((feature) => (
+                  <Card key={feature.title} className="max-w-lg mx-auto">
+                    <CardHeader>
+                      <div className="w-16 h-16 text-primary-foreground flex justify-center items-center border border-border rounded-xl bg-primary mx-auto">
+                        {feature.icon}
+                      </div>
+                    </CardHeader>
+                    <CardContent>
+                      <CardTitle>{feature.title}</CardTitle>
+                      <CardDescription className="mt-4">
+                        {feature.description}
+                      </CardDescription>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="absolute top-0 -z-10 max-h-full w-full h-full blur-2xl">
+            <div className="absolute bottom-0 left-0 w-1/2 h-56 bg-violet-600 rounded-full mix-blend-multiply opacity-70 animate-blob filter blur-3xl"></div>
+            <div className="absolute bottom-0 right-0 w-1/2 h-56 bg-sky-600 rounded-full mix-blend-multiply opacity-70 animate-blob delay-1000 filter blur-3xl"></div>
+          </div>
+        </section>
 
-            <section
-                className="border-b dark border-border bg-background">
-                <div className="container mx-auto text-center">
-                    <div className="py-14">
-                        <h2 className="text-4xl font-extrabold my-4 text-foreground">
-                            Pricing Plans
-                        </h2>
+        {/* Pricing */}
 
-                        <p className="mx-auto my-4 text-sm w-full max-w-md bg-transparent text-center font-medium leading-relaxed tracking-wide text-muted-foreground">
-                            Choose a plan that works best for you. You can always upgrade or downgrade your plan later.
-                        </p>
-                        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
-                            {pricing.map((plan) => (
-                                <Card key={plan.title} className="w-full mx-auto max-w-xl text-left relative">
-                                    {plan.fancy && (
-                                        <Badge className="absolute top-4 right-4">
-                                            Popular
-                                        </Badge>
-                                    )}
-                                    <CardHeader>
-                                        <CardTitle className="text-2xl">
-                                            {plan.title}
-                                        </CardTitle>
-                                        <CardDescription className="mt-4">
-                                            {plan.description}
-                                        </CardDescription>
-                                        <h5 className="text-2xl font-bold">{plan.price}</h5>
-                                    </CardHeader>
-                                    <CardContent>
-                                        <Button className="w-full" variant={plan.fancy ? "default" : "secondary"}>
-                                            Get Started
-                                        </Button>
-                                    </CardContent>
-                                    <CardFooter>
-                                        <ul className="mt-4">
-                                            {plan.features.map((feature) => (
-                                                <li key={feature} className="flex items-center gap-2">
-                                                    <CircleCheck className="w-4 h-4 text-green-500"/>
-                                                    {feature}
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </CardFooter>
-                                </Card>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </section>
+        <section className="border-b dark border-border bg-background">
+          <div className="container mx-auto text-center">
+            <div className="py-14">
+              <h2 className="text-4xl font-extrabold my-4 text-foreground">
+                Pricing Plans
+              </h2>
 
-        </>
+              <p className="mx-auto my-4 text-sm w-full max-w-md bg-transparent text-center font-medium leading-relaxed tracking-wide text-muted-foreground">
+                Choose a plan that works best for you. You can always upgrade or
+                downgrade your plan later.
+              </p>
+              <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4">
+                {pricing.map((plan) => (
+                  <Card
+                    key={plan.title}
+                    className="w-full mx-auto max-w-xl text-left relative"
+                  >
+                    {plan.fancy && (
+                      <Badge className="absolute top-4 right-4">Popular</Badge>
+                    )}
+                    <CardHeader>
+                      <CardTitle className="text-2xl">{plan.title}</CardTitle>
+                      <CardDescription className="mt-4">
+                        {plan.description}
+                      </CardDescription>
+                      <h5 className="text-2xl font-bold">{plan.price}</h5>
+                    </CardHeader>
+                    <CardContent>
+                      <Button
+                        className="w-full"
+                        variant={plan.fancy ? "default" : "secondary"}
+                      >
+                        Get Started
+                      </Button>
+                    </CardContent>
+                    <CardFooter>
+                      <ul className="mt-4">
+                        {plan.features.map((feature) => (
+                          <li key={feature} className="flex items-center gap-2">
+                            <CircleCheck className="w-4 h-4 text-green-500" />
+                            {feature}
+                          </li>
+                        ))}
+                      </ul>
+                    </CardFooter>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      </>
     );
 }
